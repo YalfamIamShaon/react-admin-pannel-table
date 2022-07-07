@@ -1,5 +1,5 @@
 import faker from "faker";
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -17,10 +17,12 @@ import {
 } from "@material-ui/core";
 
 import { NavLink } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import "../components/Navbar.css";
 
 const useStyles = makeStyles((theme) => ({
   table: {
-    minWidth: 550,
+    minWidth: 450,
   },
   tableContainer: {
     borderRadius: 10,
@@ -29,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tableHeaderCell: {
     fontWeight: "bold",
+    fontSize: "1.5rem",
     backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.getContrastText(theme.palette.secondary.dark),
   },
@@ -38,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   name: {
     fontWeight: "bold",
+    fontSize: "1rem",
     color: theme.palette.info.main,
   },
   status: {
@@ -69,6 +73,7 @@ function MTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [showMediaIcons, setShowMediaIcons] = useState(false);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -87,7 +92,11 @@ function MTable() {
             <span>Tables</span>
           </h2>
         </div>
-        <div className="menu-link">
+        <div
+          className={
+            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
+          }
+        >
           <ul>
             <li>
               <NavLink to="/">Home</NavLink>
@@ -99,6 +108,11 @@ function MTable() {
               <NavLink to="#">Admin Pannel</NavLink>
             </li>
           </ul>
+          <div className="hamburger-menu">
+            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+              <GiHamburgerMenu />
+            </a>
+          </div>
         </div>
       </nav>
 

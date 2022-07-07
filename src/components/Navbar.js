@@ -13,7 +13,11 @@ const Navbar = () => {
             <span>Tables</span>
           </h2>
         </div>
-        <div className="menu-link">
+        <div
+          className={
+            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
+          }
+        >
           <ul>
             <li>
               <NavLink to="/">Home</NavLink>
