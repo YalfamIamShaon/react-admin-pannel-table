@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "../components/Navbar.css";
+import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
+
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -10,9 +11,10 @@ const Navbar = () => {
       <nav className="main-nav">
         <div className="logo">
           <h2>
-            <span>Tables</span>
+            <span>Table</span>
           </h2>
         </div>
+
         <div
           className={
             showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
@@ -29,6 +31,9 @@ const Navbar = () => {
               <NavLink to="#">Admin Pannel</NavLink>
             </li>
           </ul>
+        </div>
+
+        <div className="social-media">
           <div className="hamburger-menu">
             <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
               <GiHamburgerMenu />

@@ -89,9 +89,10 @@ function MTable() {
       <nav className="main-nav">
         <div className="logo">
           <h2>
-            <span>Tables</span>
+            <span>Table</span>
           </h2>
         </div>
+
         <div
           className={
             showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
@@ -108,6 +109,9 @@ function MTable() {
               <NavLink to="#">Admin Pannel</NavLink>
             </li>
           </ul>
+        </div>
+
+        <div className="social-media">
           <div className="hamburger-menu">
             <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
               <GiHamburgerMenu />
